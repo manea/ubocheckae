@@ -1,0 +1,14 @@
+[Unit]
+Description=UBOCheckAE UAE Cabinet Resolutions 109/2023 & 132/2023 Beneficial Owner Studio
+After=network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory=/opt/ubocheckae
+EnvironmentFile=/etc/ubocheckae/.env
+ExecStart=/usr/bin/node --no-warnings /opt/ubocheckae/server/index.mjs
+Restart=on-failure
+RestartSec=3
+
+[Install]
+WantedBy=default.target

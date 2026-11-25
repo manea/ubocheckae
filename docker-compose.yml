@@ -1,0 +1,20 @@
+services:
+  ubocheckae:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: ubocheckae
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:4249:4249"
+    environment:
+      NODE_ENV: production
+      HOST: 0.0.0.0
+      PORT: 4249
+      UBOCHECKAE_DATA_DIR: /app/data
+      BASE_PATH: ${BASE_PATH:-}
+    volumes:
+      - ubocheckae_data:/app/data
+
+volumes:
+  ubocheckae_data:

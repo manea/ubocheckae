@@ -1,0 +1,114 @@
+@import "tailwindcss";
+
+:root,
+[data-theme="alabaster-registry"] {
+  --bg-canvas: #F7F9FC;
+  --bg-surface: #FFFFFF;
+  --bg-elevated: #EDF2F8;
+  --bg-soft: rgba(15, 41, 74, 0.08);
+  --border-subtle: #D3DCE8;
+  --border-strong: #64748B;
+  --text-primary: #0B192C;
+  --text-secondary: #475569;
+  --accent-primary: #0F294A;
+  --accent-primary-hover: #0A1D36;
+  --accent-primary-fg: #FFFFFF;
+  --accent-teal: #0F766E;
+  --accent-teal-soft: rgba(15, 118, 110, 0.12);
+  --accent-emerald: #047857;
+  --accent-emerald-soft: rgba(4, 120, 87, 0.12);
+  --accent-amber: #B45309;
+  --accent-amber-soft: rgba(180, 83, 9, 0.14);
+  --accent-crimson: #BE123C;
+  --accent-crimson-fg: #FFFFFF;
+  --accent-crimson-soft: rgba(190, 18, 60, 0.12);
+  --shadow-card: 0 12px 28px -16px rgba(11, 25, 44, 0.14);
+}
+
+[data-theme="obsidian-compliance"] {
+  --bg-canvas: #07101D;
+  --bg-surface: #0E1A2D;
+  --bg-elevated: #16263F;
+  --bg-soft: rgba(56, 189, 248, 0.14);
+  --border-subtle: #243A59;
+  --border-strong: #4A6A94;
+  --text-primary: #F1F5F9;
+  --text-secondary: #AFC0DA;
+  --accent-primary: #38BDF8;
+  --accent-primary-hover: #7DD3FC;
+  --accent-primary-fg: #07192D;
+  --accent-teal: #2DD4BF;
+  --accent-teal-soft: rgba(45, 212, 191, 0.16);
+  --accent-emerald: #34D399;
+  --accent-emerald-soft: rgba(52, 211, 153, 0.18);
+  --accent-amber: #FBBF24;
+  --accent-amber-soft: rgba(251, 191, 36, 0.18);
+  --accent-crimson: #FB7185;
+  --accent-crimson-fg: #26060D;
+  --accent-crimson-soft: rgba(251, 113, 133, 0.18);
+  --shadow-card: 0 18px 40px -16px rgba(0, 0, 0, 0.72);
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+  background-color: var(--bg-canvas);
+  color: var(--text-primary);
+  font-family: "IBM Plex Sans Arabic", "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+@layer components {
+  .ubo-mono {
+    font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  }
+
+  .num-tabular {
+    font-variant-numeric: tabular-nums;
+  }
+
+  .ubo-card {
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    box-shadow: var(--shadow-card);
+  }
+
+  .ubo-input {
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border-strong);
+    color: var(--text-primary);
+    border-radius: 0.6rem;
+    padding: 0.45rem 0.7rem;
+    font-size: 0.875rem;
+    width: 100%;
+    transition: border-color 150ms ease, box-shadow 150ms ease;
+  }
+
+  .ubo-input:focus {
+    outline: none;
+    border-color: var(--accent-primary);
+    box-shadow: 0 0 0 3px var(--bg-soft);
+  }
+}
+
+@page {
+  size: A4;
+  margin: 14mm;
+}
+
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  body {
+    background: #FFFFFF !important;
+    color: #0F172A !important;
+  }
+  .ubo-card {
+    box-shadow: none !important;
+    border-color: #CBD5E1 !important;
+    break-inside: avoid;
+  }
+}
